@@ -1,1 +1,1 @@
-#jekins-cordova
+#jenkins-cordova
