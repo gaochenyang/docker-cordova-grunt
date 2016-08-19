@@ -16,6 +16,8 @@ RUN npm install -g npm && \
 RUN npm install -g grunt-cli && \
     npm install -g bower && \
     echo '{ "allow_root": true }' > /root/.bowerrc
+    apt-get update
+    apt-get install -y subversion
 
 VOLUME ["/data"]
 WORKDIR /data
