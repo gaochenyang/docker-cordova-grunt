@@ -11,6 +11,10 @@ RUN npm install -g npm && \
     cordova platform add android && \
     cd && \
     rm -rf /tmp/fakeapp
+    
+# Installs Other tools
+RUN npm install -g grunt && \
+    npm install -g bower
 
 VOLUME ["/data"]
 WORKDIR /data
