@@ -1,11 +1,18 @@
-FROM jenkins
-MAINTAINER jrontEnd "mingxiruliu@gmail.com"
+FROM webratio/nodejs-with-android-sdk
 
-# install Node
-RUN curl https://nodejs.org/dist/v4.5.0/node-v5.5.0-linux-x64.tar.gz | tar xz -C /usr/local/ --strip=1
+# Installs Cordova
+# Forces a platform add in order to preload libraries
+ENV CORDOVA_VERSION 6.0.0
+RUN npm install -g npm && \
+    npm install -g cordova@${CORDOVA_VERSION} && \
+    cd /tmp && \
+    cordova create fakeapp && \
+    cd /tmp/fakeapp && \
+    cordova platform add android && \
+    cd && \
+    rm -rf /tmp/fakeapp
 
-# install Android
+VOLUME ["/data"]
+WORKDIR /data
 
-# install gradle
-
-# install cordova
+EXPOSE 8000
