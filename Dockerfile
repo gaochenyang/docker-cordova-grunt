@@ -13,7 +13,7 @@ RUN npm install -g npm && \
     rm -rf /tmp/fakeapp
     
 # Installs Other tools
-RUN npm install -g grunt && \
+RUN npm install -g grunt-cli && \
     npm install -g bower
 
 VOLUME ["/data"]
