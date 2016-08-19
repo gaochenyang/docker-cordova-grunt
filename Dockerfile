@@ -14,7 +14,8 @@ RUN npm install -g npm && \
     
 # Installs Other tools
 RUN npm install -g grunt-cli && \
-    npm install -g bower
+    npm install -g bower && \
+    echo '{ "allow_root": true }' > /root/.bowerrc
 
 VOLUME ["/data"]
 WORKDIR /data
