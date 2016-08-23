@@ -6,7 +6,8 @@ RUN npm install -g grunt-cli && \
     echo '{ "allow_root": true }' > /root/.bowerrc && \
     apt-get update && \
     apt-get install -y subversion && \
-    apt-get install -y git
+    apt-get install -y git && \
+    apt-get install -y vim
 
 VOLUME ["/data"]
 WORKDIR /data
