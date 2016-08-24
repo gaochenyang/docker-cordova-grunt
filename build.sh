@@ -12,7 +12,7 @@ svn co $path /data/$proname
 # static-html-builder init
 buildDir="${proname}Builder"
 if [ ! -d "$buildDir" ]; then
-  git clone https://github.com/ETENG-WIKI/static-html-builder $buildDir
+  git clone https://github.com/JrontEnd/static-html-builder $buildDir
 fi
 cd $buildDir
 npm install
