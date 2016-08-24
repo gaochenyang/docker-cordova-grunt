@@ -9,6 +9,12 @@ RUN npm install -g grunt-cli && \
     apt-get install -y git && \
     apt-get install -y vim
 
+COPY init.sh /data/init.sh
+RUN chmod +x /data/init.sh
+
+COPY init.sh /data/build.sh
+RUN chmod +x /data/build.sh
+
 VOLUME ["/data"]
 WORKDIR /data
 
