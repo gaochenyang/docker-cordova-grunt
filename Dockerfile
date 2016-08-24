@@ -12,7 +12,7 @@ RUN npm install -g grunt-cli && \
 COPY init.sh /data/init.sh
 RUN chmod +x /data/init.sh
 
-COPY init.sh /data/build.sh
+COPY build.sh /data/build.sh
 RUN chmod +x /data/build.sh
 
 VOLUME ["/data"]
