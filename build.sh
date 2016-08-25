@@ -1,24 +1,27 @@
 #!/bin/sh
 
-# update the project
-svn update $1
+# switch the project
+cd $3
+svn switch $1
+cd ..
 
 # build html
 pkill java
-cd "$1Builder"
-grunt build
+cd "$3Builder"
+grunt $2
 
 # build apk
-cd ../$2
+cd ../$4
 #  copy signer
-cp /data/$1/$3 config.xml
-if [ ! -z "$4" ]; then
-  cp /data/$1/$4 release.keystore
+cp /data/$3/$5 config.xml
+sed -i -e 's/{version}/$6/g' config.xml
+if [ ! -z "$7" ]; then
+  cp /data/$3/$7 release.keystore
   cordova build --release
 else
   cordova build
 fi
-if [ ! -z "$4" ] && [ ! -z "$5" ] && [ ! -z "$6" ] && [ ! -z "$7" ]; then
-  cp platforms/android/build/outputs/apk/$5 release.apk
-  jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore release.keystore -storepass $6 release.apk $7
+if [ ! -z "$7" ] && [ ! -z "$8" ] && [ ! -z "$9" ] && [ ! -z "$10" ]; then
+  cp platforms/android/build/outputs/apk/$8 release.apk
+  jarsigner -verbose -sigalg SHA3withRSA -digestalg SHA3 -keystore release.keystore -storepass $9 release.apk $10
 fi
