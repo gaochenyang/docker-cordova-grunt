@@ -8,6 +8,7 @@ cd ..
 # build html
 pkill java
 cd "$3Builder"
+grunt init
 grunt $2
 
 # build apk
