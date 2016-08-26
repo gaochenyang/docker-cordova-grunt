@@ -23,5 +23,5 @@ else
 fi
 if [ ! -z "$7" ] && [ ! -z "$8" ] && [ ! -z "$9" ] && [ ! -z "$10" ]; then
   cp platforms/android/build/outputs/apk/$8 release.apk
-  jarsigner -verbose -sigalg SHA3withRSA -digestalg SHA3 -keystore release.keystore -storepass $9 release.apk $10
+  jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore release.keystore -storepass $9 release.apk $10
 fi
