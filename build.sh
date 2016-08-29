@@ -15,7 +15,7 @@ grunt $2
 cd ../$4
 #  copy signer
 cp /data/$3/$5 config.xml
-sed -i -e 's/{version}/$6/g' config.xml
+sed -i -e "s/{version}/$6/g" config.xml
 if [ ! -z "$7" ]; then
   cp /data/$3/$7 release.keystore
   cordova build --release
